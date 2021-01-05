@@ -1,1 +1,6 @@
-
+FROM tomcat
+LABEL maintainer="northcorp software limited"
+ADD ./target/sample.war /usr/local/tomcat/webapps/sample.war
+RUN ln -sf /usr/share/zoneinfo/Asia/Calcutta /etc/localtime
+EXPOSE 8080
+CMD ["catalina.sh", "run"]
